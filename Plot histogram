@@ -1,0 +1,14 @@
+#Plot_histogram the function that used to visualize outcome probabilites of the circuit
+
+from qiskit import *
+from qiskit.visualization import plot_histogram
+qc=QuantumCircuit(3,3)
+qc.h([0,1,2])
+qc.cx(0,1)
+qc.cx(1,2)
+qc.barrier()
+qc.measure([1,2],[1,2])
+backend =Aer.get_backend('qasm_simulator')
+result= execute(qc,backend,shots=1024).result()
+counts= result.get_counts()
+plot_histogram(counts)
