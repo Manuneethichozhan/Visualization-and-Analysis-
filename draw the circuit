@@ -1,5 +1,5 @@
 
-# basic methods to draw a circuit
+## basic methods to draw a circuit
 from qiskit import *
 circuit=QuantumCircuit(3,3)
 circuit.h([0,1,2])
