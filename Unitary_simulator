@@ -1,0 +1,13 @@
+#Simulation of the unitary evolution of a quantum circuit using the unitary_simulator
+
+from qiskit import QuantumCircuit, Aer, execute
+
+qc = QuantumCircuit(2)
+qc.h(1)
+qc.x(0)
+qc.cx(0, 1)
+
+backend = Aer.get_backend('unitary_simulator')
+result = execute(qc, backend).result()
+unitary = result.get_unitary()
+print(unitary)
